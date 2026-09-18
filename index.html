@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amala House | Authentic Nigerian Food</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fffaf5;
+  color:#211711;
+  line-height:1.6;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,250,245,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eaded5;
+}
+
+nav{
+  max-width:1150px;
+  margin:auto;
+  padding:17px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  color:#d94d16;
+}
+
+.logo span{
+  color:#211711;
+}
+
+nav a{
+  color:#211711;
+  text-decoration:none;
+  margin-left:22px;
+  font-weight:700;
+}
+
+nav a:hover{
+  color:#d94d16;
+}
+
+/* HERO */
+
+.hero{
+  max-width:1150px;
+  margin:auto;
+  padding:70px 22px 60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#ffe5d5;
+  color:#b8400e;
+  padding:8px 14px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+h1{
+  font-size:clamp(44px,6vw,72px);
+  line-height:1;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+}
+
+h1 span{
+  color:#d94d16;
+}
+
+.hero p{
+  color:#6f625b;
+  font-size:18px;
+  max-width:540px;
+  margin-bottom:28px;
+}
+
+.btn{
+  display:inline-block;
+  background:#d94d16;
+  color:white;
+  text-decoration:none;
+  border:0;
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+
+.btn.dark{
+  background:#211711;
+  margin-left:8px;
+}
+
+.hero-img{
+  width:100%;
+  height:450px;
+  object-fit:cover;
+  border-radius:30px;
+  box-shadow:0 25px 60px rgba(40,20,10,.18);
+}
+
+/* GENERAL */
+
+section{
+  max-width:1150px;
+  margin:auto;
+  padding:70px 22px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:40px;
+  margin-bottom:7px;
+}
+
+.section-title p{
+  color:#756860;
+}
+
+/* MENU */
+
+.menu-tabs{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:30px;
+}
+
+.tab{
+  border:1px solid #e5d8cf;
+  background:white;
+  padding:10px 17px;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.tab.active{
+  background:#d94d16;
+  color:white;
+  border-color:#d94d16;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  background:white;
+  border:1px solid #eee1d8;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(40,20,10,.06);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 35px rgba(40,20,10,.12);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:18px;
+}
+
+.card h3{
+  margin-bottom:7px;
+}
+
+.desc{
+  color:#756860;
+  font-size:14px;
+  min-height:43px;
+}
+
+.price{
+  color:#d94d16;
+  font-size:20px;
+  font-weight:900;
+  margin:14px 0;
+}
+
+.card .btn{
+  width:100%;
+}
+
+/* ABOUT */
+
+.about{
+  background:#211711;
+  color:white;
+  max-width:none;
+}
+
+.about-inner{
+  max-width:1150px;
+  margin:auto;
+  padding:75px 22px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.about h2{
+  font-size:40px;
+}
+
+.about p{
+  color:#d7ccc5;
+  margin-top:14px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:25px;
+}
+
+.feature{
+  background:#30251f;
+  padding:18px;
+  border-radius:15px;
+}
+
+.feature b{
+  display:block;
+  margin-bottom:5px;
+}
+
+.feature span{
+  color:#cbbdb5;
+  font-size:13px;
+}
+
+/* CONTACT */
+
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.box{
+  background:white;
+  padding:28px;
+  border:1px solid #eee1d8;
+  border-radius:20px;
+}
+
+.box p{
+  color:#71645d;
+  margin:10px 0;
+}
+
+/* CART */
+
+.cart{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:200;
+  border:0;
+  background:#d94d16;
+  color:white;
+  padding:15px 21px;
+  border-radius:50px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:85px;
+  transform:translateX(-50%);
+  background:#211711;
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+  display:none;
+  z-index:300;
+}
+
+/* FOOTER */
+
+footer{
+  background:#17110e;
+  color:#bdb0a8;
+  text-align:center;
+  padding:28px 20px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  nav a{
+    display:none;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:45px;
+  }
+
+  .hero-img{
+    height:330px;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .about-inner,
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:520px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:50px;
+  }
+
+  .btn.dark{
+    margin-left:0;
+    margin-top:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+Amala <span>House</span> 🍲
+</div>
+
+<div>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+</header>
+
+
+<main id="home">
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<div class="badge">
+Authentic Nigerian Kitchen 🇳🇬
+</div>
+
+<h1>
+Hot.<br>
+Fresh.<br>
+<span>Amala.</span>
+</h1>
+
+<p>
+Traditional Nigerian meals prepared fresh and served hot.
+From rich ewedu and gbegiri to smoky jollof rice and juicy chicken,
+we bring the taste of home straight to your table.
+</p>
+
+<a class="btn" href="#menu">
+View Menu
+</a>
+
+<a class="btn dark" href="#contact">
+Order Delivery
+</a>
+
+</div>
+
+
+<img
+class="hero-img"
+src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+alt="Fresh Nigerian-style food"
+>
+
+</section>
+
+
+<!-- MENU -->
+
+<section id="menu">
+
+<div class="section-title">
+
+<h2>
+Our Menu
+</h2>
+
+<p>
+Made fresh. Served hot. Loved every time.
+</p>
+
+</div>
+
+
+<div class="menu-tabs">
+
+<button class="tab active" onclick="filterMenu('all',this)">
+All
+</button>
+
+<button class="tab" onclick="filterMenu('swallow',this)">
+Swallow
+</button>
+
+<button class="tab" onclick="filterMenu('rice',this)">
+Rice
+</button>
+
+<button class="tab" onclick="filterMenu('grills',this)">
+Grills
+</button>
+
+<button class="tab" onclick="filterMenu('drinks',this)">
+Drinks
+</button>
+
+</div>
+
+
+<div class="grid" id="menuGrid">
+
+
+<!-- AMALA -->
+
+<article class="card" data-cat="swallow">
+
+<img
+src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+alt="Amala meal"
+>
+
+<div class="card-body">
+
+<h3>
+Amala + Ewedu + Gbegiri
+</h3>
+
+<p class="desc">
+Soft amala served with smooth ewedu, gbegiri and a delicious stew.
+</p>
+
+<div class="price">
+₦3,500
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Amala + Ewedu + Gbegiri')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+
+<!-- AMALA BEEF -->
+
+<article class="card" data-cat="swallow">
+
+<img
+src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85"
+alt="Traditional Nigerian meal"
+>
+
+<div class="card-body">
+
+<h3>
+Amala + Ewedu + Beef
+</h3>
+
+<p class="desc">
+Classic amala combo served with tender beef and rich Nigerian stew.
+</p>
+
+<div class="price">
+₦4,000
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Amala + Ewedu + Beef')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+
+<!-- JOLLOF -->
+
+<article class="card" data-cat="rice">
+
+<img
+src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=85"
+alt="Jollof rice and chicken"
+>
+
+<div class="card-body">
+
+<h3>
+Jollof Rice + Chicken
+</h3>
+
+<p class="desc">
+Smoky Nigerian party-style jollof served with juicy chicken.
+</p>
+
+<div class="price">
+₦4,000
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Jollof Rice + Chicken')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+
+<!-- FRIED RICE -->
+
+<article class="card" data-cat="rice">
+
+<img
+src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=85"
+alt="Fried rice"
+>
+
+<div class="card-body">
+
+<h3>
+Fried Rice + Chicken
+</h3>
+
+<p class="desc">
+Colourful fried rice with vegetables and grilled chicken.
+</p>
+
+<div class="price">
+₦4,500
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Fried Rice + Chicken')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+
+<!-- BURGER -->
+
+<article class="card" data-cat="grills">
+
+<img
+src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+alt="Chicken burger"
+>
+
+<div class="card-body">
+
+<h3>
+Chicken Burger
+</h3>
+
+<p class="desc">
+Crispy chicken, fresh vegetables and our special house sauce.
+</p>
+
+<div class="price">
+₦5,500
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Chicken Burger')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+
+<!-- SHAWARMA -->
+
+<article class="card" data-cat="grills">
+
+<img
+src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=900&q=85"
+alt="Chicken shawarma"
+>
+
+<div class="card-body">
+
+<h3>
+Chicken Shawarma
+</h3>
+
+<p class="desc">
+Loaded shawarma with chicken, vegetables and creamy sauce.
+</p>
+
+<div class="price">
+₦3,500
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Chicken Shawarma')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+
+<!-- DRINK -->
+
+<article class="card" data-cat="drinks">
+
+<img
+src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+alt="Cold drinks"
+>
+
+<div class="card-body">
+
+<h3>
+Chilled Soft Drink
+</h3>
+
+<p class="desc">
+Ice-cold drink to complete your meal.
+</p>
+
+<div class="price">
+₦700
+</div>
+
+<button
+class="btn"
+onclick="addToCart('Chilled Soft Drink')"
+>
+Add to Order
+</button>
+
+</div>
+</article>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<div class="about">
+
+<div class="about-inner" id="about">
+
+<div>
+
+<h2>
+Good food. Real Nigerian flavour.
+</h2>
+
+<p>
+Amala House brings the comfort of a proper Nigerian meal to your table.
+Our kitchen focuses on generous portions, fresh ingredients and the flavours
+people come back for.
+</p>
+
+
+<div class="features">
+
+<div class="feature">
+<b>🔥 Fresh Daily</b>
+<span>
+Meals prepared fresh every day.
+</span>
+</div>
+
+<div class="feature">
+<b>🚴 Fast Delivery</b>
+<span>
+Hot meals delivered to your door.
+</span>
+</div>
+
+<div class="feature">
+<b>❤️ Made With Care</b>
+<span>
+Quality in every plate.
+</span>
+</div>
+
+</div>
+
+</div>
+
+
+<img
+class="hero-img"
+style="height:360px"
+src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+alt="Fresh food"
+>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="section-title">
+
+<h2>
+Order From Us
+</h2>
+
+<p>
+Ready to eat? Place your order or contact us directly.
+</p>
+
+</div>
+
+
+<div class="contact">
+
+
+<div class="box">
+
+<h3>
+📱 WhatsApp Orders
+</h3>
+
+<p>
+Tap below to start your order on WhatsApp.
+</p>
+
+<a
+class="btn"
+href="https://wa.me/2348000000000"
+target="_blank"
+>
+Order on WhatsApp
+</a>
+
+</div>
+
+
+<div class="box">
+
+<h3>
+📍 Visit / Contact
+</h3>
+
+<p>
+123 Food Street, Abuja, Nigeria
+</p>
+
+<p>
+Monday – Sunday: 10:00 AM – 10:00 PM
+</p>
+
+<p>
+📞 0800 000 0000
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+© 2026 Amala House · Website Demo by WebCraft
+
+</footer>
+
+
+<!-- CART -->
+
+<button class="cart" onclick="checkout()">
+
+🛒 Order
+(<span id="count">0</span>)
+
+</button>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+let cart=[];
+
+
+function addToCart(item){
+
+cart.push(item);
+
+document.getElementById("count").textContent=cart.length;
+
+showToast(item+" added to your order!");
+
+}
+
+
+function showToast(message){
+
+const toast=document.getElementById("toast");
+
+toast.textContent=message;
+
+toast.style.display="block";
+
+setTimeout(function(){
+
+toast.style.display="none";
+
+},1800);
+
+}
+
+
+function checkout(){
+
+if(cart.length===0){
+
+showToast("Your order is empty. Add a meal first!");
+
+return;
+
+}
+
+
+let message=
+"Hello Amala House!%0A%0AI would like to order:%0A%0A"
++
+cart.map(function(item,index){
+
+return (index+1)+". "+item;
+
+}).join("%0A")
++
+"%0A%0AThank you!";
+
+
+window.open(
+"https://wa.me/2348000000000?text="+message,
+"_blank"
+);
+
+}
+
+
+function filterMenu(category,button){
+
+document
+.querySelectorAll(".tab")
+.forEach(function(tab){
+
+tab.classList.remove("active");
+
+});
+
+button.classList.add("active");
+
+
+document
+.querySelectorAll(".card")
+.forEach(function(card){
+
+if(category==="all" || card.dataset.cat===category){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
